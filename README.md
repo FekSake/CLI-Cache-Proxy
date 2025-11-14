@@ -157,12 +157,3 @@ The proxy server handles various error scenarios:
 ## Requirements
 
 - Python 3.6+
-- requests library (see requirements.txt)
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
