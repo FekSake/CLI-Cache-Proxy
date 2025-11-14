@@ -27,6 +27,12 @@ def parseArguments():
         help='Clear the cache and exit'
     )
     
+    parser.add_argument(
+        '--cache-ttl',
+        type=int,
+        help='Cache time-to-live in seconds (optional). Cached entries will expire after this duration.'
+    )
+    
     args = parser.parse_args()
     
     if args.clear_cache:
@@ -75,7 +81,7 @@ def main():
         from server import startServer
         
         try:
-            startServer(args.port, args.origin)
+            startServer(args.port, args.origin, args.cache_ttl)
         except ValueError as e:
             print(f'Error: {e}', file=sys.stderr)
             sys.exit(1)

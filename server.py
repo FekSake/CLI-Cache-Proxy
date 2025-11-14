@@ -6,8 +6,8 @@ from proxy_client import ProxyClient
 from proxy_handler import ProxyRequestHandler
 
 
-def startServer(port: int, origin_url: str) -> None:
-    cache_manager = CacheManager()
+def startServer(port: int, origin_url: str, cache_ttl: int = None) -> None:
+    cache_manager = CacheManager(ttl=cache_ttl)
     proxy_client = ProxyClient(origin_url)
     
     ProxyRequestHandler.cache_manager = cache_manager
@@ -45,6 +45,8 @@ def startServer(port: int, origin_url: str) -> None:
     
     print(f'Caching proxy server started on port {port}')
     print(f'Forwarding requests to: {origin_url}')
+    if cache_ttl:
+        print(f'Cache TTL: {cache_ttl} seconds')
     print('Press Ctrl+C to stop the server')
     
     try:

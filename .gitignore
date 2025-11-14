@@ -183,3 +183,7 @@ cython_debug/
 /.vscode
 cache.json
 test_proxy.py
+test_debug_ttl.py
+test_multiple_ttl.py
+test_ttl.py
+quick_test.py
